@@ -68,11 +68,13 @@ struct DogView: View {
                         }
                 }
             }
+
             .navigationTitle("Dog Info Display")
             .onAppear {
                 firestoreManager.fetchDog {
                 }
             }
+            .applyBackground()
         }
     }
 }

@@ -51,11 +51,14 @@ struct TaskListView: View {
                                 .onDisappear {
                                     shouldRefresh.toggle() // Trigger refresh when returning from WalkDetailView
                                 }
+                                .applyBackground
                             ) {
                                 TaskRowView(task: taskEntity)
                             }
                         }
                     }
+                    .scrollContentBackground(.hidden) // Removes default list background
+                    .background(Color.clear)
                     .id(shouldRefresh) // Use shouldRefresh to force the list to refresh
                 }
 

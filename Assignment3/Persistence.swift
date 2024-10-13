@@ -44,16 +44,9 @@ struct PersistenceController {
             description: "Take dog for a walk",
             context: viewContext
         )
-        
-        // Sample Dog data
-        let newDog = DogEntity(context: viewContext)
-        newDog.id = UUID()
-        newDog.name = "Buddy"
-        newDog.age = 3
-        newDog.breed = "Golden Retriever"
-        newDog.size = "Large"
-        newDog.weight = 35
-        
+        let reward = Reward(context: viewContext)
+            reward.totalPoints = 0 // Sample reward points
+            
         do {
             try viewContext.save()
         } catch {

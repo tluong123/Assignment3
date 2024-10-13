@@ -27,6 +27,10 @@
 		5755F67B2CB542540007F706 /* AddTaskView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5755F67A2CB542540007F706 /* AddTaskView.swift */; };
 		5755F67D2CB5426F0007F706 /* WalkDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5755F67C2CB5426F0007F706 /* WalkDetailView.swift */; };
 		5755F67F2CB542860007F706 /* FSCalendarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5755F67E2CB542860007F706 /* FSCalendarView.swift */; };
+		5783B54B2CBA44C700C5D88C /* RewardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5783B54A2CBA44C600C5D88C /* RewardView.swift */; };
+		5783B5502CBA5AE900C5D88C /* WeatherAPIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5783B54F2CBA5AE900C5D88C /* WeatherAPIManager.swift */; };
+		5783B5522CBA5B1900C5D88C /* Weather.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5783B5512CBA5B1900C5D88C /* Weather.swift */; };
+		5783B5542CBA5B2E00C5D88C /* WeatherView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5783B5532CBA5B2E00C5D88C /* WeatherView.swift */; };
 		57C5B4322CB6000C00BBF075 /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = 57C5B4312CB6000C00BBF075 /* FirebaseAnalytics */; };
 		57C5B4342CB6000C00BBF075 /* FirebaseAnalyticsSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 57C5B4332CB6000C00BBF075 /* FirebaseAnalyticsSwift */; };
 		57C5B4362CB6000C00BBF075 /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = 57C5B4352CB6000C00BBF075 /* FirebaseAuth */; };
@@ -36,7 +40,7 @@
 		57C5B43E2CB6030A00BBF075 /* FirestoreManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57C5B43D2CB6030A00BBF075 /* FirestoreManager.swift */; };
 		57C5B4412CB673E300BBF075 /* MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57C5B4402CB673E300BBF075 /* MapView.swift */; };
 		57C5B4432CB6753600BBF075 /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57C5B4422CB6753600BBF075 /* LocationManager.swift */; };
-		57CC3F1B2CB7E43B00B2E6D3 /* Reward.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57CC3F1A2CB7E43B00B2E6D3 /* Reward.swift */; };
+		57C70D6B2CBB44C20035D7EC /* Background.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57C70D6A2CBB44C20035D7EC /* Background.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -61,11 +65,15 @@
 		5755F67A2CB542540007F706 /* AddTaskView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTaskView.swift; sourceTree = "<group>"; };
 		5755F67C2CB5426F0007F706 /* WalkDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalkDetailView.swift; sourceTree = "<group>"; };
 		5755F67E2CB542860007F706 /* FSCalendarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FSCalendarView.swift; sourceTree = "<group>"; };
+		5783B54A2CBA44C600C5D88C /* RewardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RewardView.swift; sourceTree = "<group>"; };
+		5783B54F2CBA5AE900C5D88C /* WeatherAPIManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherAPIManager.swift; sourceTree = "<group>"; };
+		5783B5512CBA5B1900C5D88C /* Weather.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Weather.swift; sourceTree = "<group>"; };
+		5783B5532CBA5B2E00C5D88C /* WeatherView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherView.swift; sourceTree = "<group>"; };
 		57C5B43B2CB6015400BBF075 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		57C5B43D2CB6030A00BBF075 /* FirestoreManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirestoreManager.swift; sourceTree = "<group>"; };
 		57C5B4402CB673E300BBF075 /* MapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapView.swift; sourceTree = "<group>"; };
 		57C5B4422CB6753600BBF075 /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
-		57CC3F1A2CB7E43B00B2E6D3 /* Reward.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reward.swift; sourceTree = "<group>"; };
+		57C70D6A2CBB44C20035D7EC /* Background.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Background.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -110,10 +118,12 @@
 				5755F64D2CB53D830007F706 /* Assignment3App.swift */,
 				5755F64F2CB53D830007F706 /* ContentView.swift */,
 				5755F65B2CB53F430007F706 /* MainView.swift */,
+				57C70D6A2CBB44C20035D7EC /* Background.swift */,
 				5755F65F2CB53F8B0007F706 /* Dog */,
 				5755F6662CB53FF70007F706 /* Task */,
 				57C5B43F2CB673C500BBF075 /* Map */,
 				57CC3F192CB7E41D00B2E6D3 /* Reward */,
+				5783B54E2CBA5AD400C5D88C /* Weather */,
 				5755F6512CB53D890007F706 /* Assets.xcassets */,
 				57C5B43B2CB6015400BBF075 /* GoogleService-Info.plist */,
 				5755F6532CB53D890007F706 /* Preview Content */,
@@ -155,6 +165,16 @@
 			path = Task;
 			sourceTree = "<group>";
 		};
+		5783B54E2CBA5AD400C5D88C /* Weather */ = {
+			isa = PBXGroup;
+			children = (
+				5783B5512CBA5B1900C5D88C /* Weather.swift */,
+				5783B54F2CBA5AE900C5D88C /* WeatherAPIManager.swift */,
+				5783B5532CBA5B2E00C5D88C /* WeatherView.swift */,
+			);
+			path = Weather;
+			sourceTree = "<group>";
+		};
 		57C5B43F2CB673C500BBF075 /* Map */ = {
 			isa = PBXGroup;
 			children = (
@@ -168,7 +188,7 @@
 		57CC3F192CB7E41D00B2E6D3 /* Reward */ = {
 			isa = PBXGroup;
 			children = (
-				57CC3F1A2CB7E43B00B2E6D3 /* Reward.swift */,
+				5783B54A2CBA44C600C5D88C /* RewardView.swift */,
 			);
 			path = Reward;
 			sourceTree = "<group>";
@@ -256,11 +276,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5783B5522CBA5B1900C5D88C /* Weather.swift in Sources */,
 				5755F6652CB53FEC0007F706 /* DogView.swift in Sources */,
+				5783B5502CBA5AE900C5D88C /* WeatherAPIManager.swift in Sources */,
 				5755F67B2CB542540007F706 /* AddTaskView.swift in Sources */,
 				5720A3832CB69AD800DE4092 /* Location.swift in Sources */,
 				5755F67D2CB5426F0007F706 /* WalkDetailView.swift in Sources */,
-				57CC3F1B2CB7E43B00B2E6D3 /* Reward.swift in Sources */,
+				5783B54B2CBA44C700C5D88C /* RewardView.swift in Sources */,
 				5755F6502CB53D830007F706 /* ContentView.swift in Sources */,
 				5755F6632CB53FD50007F706 /* DogInfoView.swift in Sources */,
 				5755F6722CB541950007F706 /* TaskManager.swift in Sources */,
@@ -268,7 +290,9 @@
 				57C5B4412CB673E300BBF075 /* MapView.swift in Sources */,
 				5755F65C2CB53F430007F706 /* MainView.swift in Sources */,
 				5755F6612CB53FB00007F706 /* DogManager.swift in Sources */,
+				57C70D6B2CBB44C20035D7EC /* Background.swift in Sources */,
 				5755F66E2CB540960007F706 /* TaskEntity.swift in Sources */,
+				5783B5542CBA5B2E00C5D88C /* WeatherView.swift in Sources */,
 				5755F65E2CB53F770007F706 /* Dog.swift in Sources */,
 				5755F64E2CB53D830007F706 /* Assignment3App.swift in Sources */,
 				5755F6792CB542440007F706 /* TaskRowView.swift in Sources */,

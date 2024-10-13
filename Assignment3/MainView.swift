@@ -29,27 +29,36 @@ struct MainView: View {
             VStack {
                 // Fetch dog information from Firestore when the view appears
                 if let dog = firestoreManager.dog {
-                    HStack {
-                        VStack(alignment: .leading) {
-                            Text(dog.name)
-                                .font(.title2)
-                            Text("\(dog.age) years old, \(dog.breed)")
-                                .font(.subheadline)
+                    // Use NavigationLink directly to navigate to DogInfoView
+                    NavigationLink(destination: DogView().environmentObject(firestoreManager)) {
+                        HStack {
+                            VStack(alignment: .leading) {
+                                Text(dog.name)
+                                    .font(.title2)
+                                Text("\(dog.age) years old, \(dog.breed)")
+                                    .font(.subheadline)
+                                    .foregroundColor(.gray)
+                            }
+                            .padding()
+                            Spacer()
+
+                            Image(systemName: "chevron.right") // ">" icon to indicate tappable item
                                 .foregroundColor(.gray)
+                                .padding()
                         }
+                        .background(Color.gray.opacity(0.1))
+                        .cornerRadius(10)
                         .padding()
-                        Spacer()
                     }
-                    .background(Color.gray.opacity(0.1))
-                    .cornerRadius(10)
-                    .padding()
+                    .buttonStyle(PlainButtonStyle()) // Keeps it looking like a regular view
                 } else {
                     // If dog information is unavailable, prompt the user to add a dog
                     NavigationLink(destination: DogInfoView()
                         .environmentObject(firestoreManager)
                         .onDisappear {
                             shouldRefresh.toggle()
-                        }) {
+                        }
+                        .applyBackground()) {
                         Text("Add your dog now!")
                             .font(.headline)
                             .padding()
@@ -94,6 +103,8 @@ struct MainView: View {
                                 }
                             }
                         }
+                        .scrollContentBackground(.hidden)
+                        .background(Color.clear)
                     }
                 }
 
@@ -108,6 +119,7 @@ struct MainView: View {
                         .onDisappear {
                             shouldRefresh.toggle()
                         }
+                        .applyBackground()
                     ) {
                         VStack {
                             Image(systemName: "calendar")
@@ -141,30 +153,44 @@ struct MainView: View {
                         }
                     }
                     .sheet(isPresented: $showMap) {
-                        TaskLocationMapView(taskLocations: $taskLocations) // Pass the task locations here
+                        TaskLocationMapView(taskLocations: $taskLocations)
                     }
 
-                    
                     Spacer()
-
-                    // Link to viewing Dog information
-                    NavigationLink(destination: DogView()
-                        .environmentObject(firestoreManager)
-                        .onDisappear {
-                            shouldRefresh.toggle()
-                        }) {
+                    
+                    // Button to navigate to WeatherView
+                    NavigationLink(destination: WeatherView().applyBackground()) {
                         VStack {
-                            Image(systemName: "pawprint")
+                            Image(systemName: "cloud.sun.fill")
                                 .font(.system(size: 24))
                                 .padding()
-                                .background(Color.green)
+                                .background(Color.blue)
                                 .foregroundColor(.white)
                                 .clipShape(Circle())
-                            Text("Your Dog")
+                            Text("Weather")
                                 .font(.caption)
                                 .foregroundColor(.primary)
                         }
                     }
+                    
+
+                    Spacer()
+                    
+                    NavigationLink(destination: RewardView().environment(\.managedObjectContext, viewContext).applyBackground()) {
+                        VStack {
+                            Image(systemName: "star.circle.fill")
+                                .font(.system(size: 24))
+                                .padding()
+                                .background(Color.orange)
+                                .foregroundColor(.white)
+                                .clipShape(Circle())
+                            Text("Rewards")
+                                .font(.caption)
+                                .foregroundColor(.primary)
+                        }
+                    }
+                    
+                    
                 }
                 .padding()
                 .background(Color.gray.opacity(0.1))
@@ -189,6 +215,7 @@ struct MainView: View {
 }
 
 
+
 // Preview setup
 struct MainView_Previews: PreviewProvider {
     static var previews: some View {
@@ -204,5 +231,6 @@ struct MainView_Previews: PreviewProvider {
         return MainView()
             .environment(\.managedObjectContext, context)
             .environmentObject(FirestoreManager()) // Use FirestoreManager for preview
+            
     }
 }

@@ -17,6 +17,12 @@ struct WalkDetailView: View {
     @Environment(\.presentationMode) var presentationMode
     @State private var showEditTaskView = false
     
+    @FetchRequest(
+        entity: Reward.entity(),
+        sortDescriptors: []
+    ) var rewards: FetchedResults<Reward> // Fetch rewards from Core Data
+
+    
     // Create a region for the map
     @State private var region = MKCoordinateRegion(
         center: CLLocationCoordinate2D(latitude: -33.865143, longitude: 151.209900), // Default to Sydney
@@ -119,7 +125,10 @@ struct WalkDetailView: View {
     // Function to toggle the completion status of a task
     private func toggleTaskCompletion() {
         task.isCompleted.toggle() // Toggle completion flag
-
+        
+        if task.isCompleted {
+            addPoints(10) // Add 10 points when a task is marked as complete
+        }
         // Save the updated state to CoreData
         do {
             try viewContext.save()
@@ -139,6 +148,24 @@ struct WalkDetailView: View {
             presentationMode.wrappedValue.dismiss() // Dismiss the view after deletion
         } catch {
             print("Error deleting task: \(error.localizedDescription)")
+        }
+    }
+    
+    private func addPoints(_ points: Int64) {
+        // Check if a reward object already exists
+        if let reward = rewards.first {
+            reward.totalPoints += points
+        } else {
+            // If no reward exists, create a new one
+            let newReward = Reward(context: viewContext)
+            newReward.totalPoints = points
+        }
+
+        // Save the updated or new reward
+        do {
+            try viewContext.save() // Save the points update to Core Data
+        } catch {
+            print("Failed to add points: \(error.localizedDescription)")
         }
     }
 }

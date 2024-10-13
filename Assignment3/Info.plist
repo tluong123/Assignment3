@@ -6,5 +6,11 @@
 	<array>
 		<string>location</string>
 	</array>
+	<key>WeatherAPIKey</key>
+	<string>8837e709f690470bad672032241210</string>
+	<key>NSLocationWhenInUseUsageDescription</key>
+	<string>We need your location to provide weather updates and track activities.</string>
+	<key>NSLocationAlwaysUsageDescription</key>
+	<string>We need your location to keep providing services in the background.</string>
 </dict>
 </plist>
